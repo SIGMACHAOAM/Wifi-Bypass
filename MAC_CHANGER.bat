@@ -13,7 +13,6 @@ net session >nul 2>&1 || (
     pause
     exit /b
 )
-
 cls
 echo ==============================================
 echo            MAC Address Changer
@@ -21,8 +20,6 @@ echo ==============================================
 echo              Made by Tohn
 echo ==============================================
 echo.
-
-REM DETECT ACTIVE ADAPTER
 echo [ .. ] Detecting active network adapter...
 
 for /f "tokens=2 delims=:" %%A in ('
@@ -45,8 +42,6 @@ if not defined ADAPTER_NAME (
 echo [ OK ] Adapter detected
 echo       Name : %ADAPTER_NAME%
 echo.
-
-REM GET ADAPTER GUID
 echo [ .. ] Retrieving adapter identifier...
 
 for /f "tokens=3" %%G in ('
@@ -66,7 +61,6 @@ echo [ OK ] Identifier found
 echo       ID   : %ADAPTER_GUID%
 echo.
 
-REM GENERATE RANDOM MAC
 echo [ .. ] Generating randomized MAC address...
 
 set "MAC=02"
@@ -80,7 +74,6 @@ echo [ OK ] MAC generated
 echo       MAC  : %MAC%
 echo.
 
-REM LOCATE REGISTRY KEY
 echo [ .. ] Locating system registry entry...
 
 set "REGKEY="
@@ -102,14 +95,10 @@ if not defined REGKEY (
 
 echo [ OK ] Registry entry located
 echo.
-
-REM APPLY MAC
 echo [ .. ] Applying MAC address...
 reg add "%REGKEY%" /v NetworkAddress /t REG_SZ /d %MAC% /f >nul
 echo [ OK ] MAC successfully applied
 echo.
-
-REM RESTART ADAPTER
 echo [ .. ] Restarting network adapter...
 netsh interface set interface "%ADAPTER_NAME%" disable >nul
 timeout /t 2 >nul
