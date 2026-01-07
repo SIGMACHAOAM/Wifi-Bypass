@@ -20,8 +20,6 @@ Some Backround to how this works it changes your mac address every time you do t
 
 
 # Updates in the future 
-I may add a python or C++ Ver
-
 Im seeing if i can make an apple app
 
 any issues lmk on discord dms are open user is T0hn_
