@@ -20,6 +20,8 @@ Some Backround to how this works it changes your mac address every time you do t
 
 
 # Updates in the future 
+Workin On Mac Spoofer Open Source and free bc im him 
+
 Im seeing if i can make an apple app
 
 any issues lmk on discord dms are open user is T0hn_
